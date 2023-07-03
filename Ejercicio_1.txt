@@ -1,0 +1,52 @@
+Ejercicio 1
+
+JESSICA MUCINO MORALES
+
+CAL IBER DÍAZ = 23 PTS
+
+const baseEndpoint = 'https://api.github.com';
+const usersEndpoint = `${baseEndpoint}/users`;
+const $n = document.getElementsByClassName('name');
+const $b = document.getElementsByClassName('blog');
+const $l = document.getElementsByClassName('location');
+
+async function displayUser(username) { //faltaba el async
+  $n.textContent = 'cargando...';
+  const response = await fetch(`${usersEndpoint}/${username}`);
+  console.log(data);
+  $n.textContent = '${data.name}';
+  $b.textContent = '${data.blog}';
+  $l.textContent = '${data.location}';
+}
+
+function handleError(err) {
+  console.log('OH NO!');
+  console.log(`Algo salió mal, ${err}`);
+  //n.textContent = este era innecesario se subió al console los para que se mostrara
+}
+
+displayUser('stolinski').catch(handleError);
+
+
+//////////////////////// html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css"> //se había saltado la carpeta de css
+    <title>APIs</title>
+
+    
+</head>
+<body>
+    <p class="name"></p>
+    <p class="blog"></p>
+    <p class="location"></p>
+
+
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>
